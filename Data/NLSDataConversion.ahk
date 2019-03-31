@@ -4,15 +4,20 @@
 ; usable by the web-based Vector Map application.                      ;
 ;----------------------------------------------------------------------;
 
-Sleep 1000
+KeyWait, Control, D
 
 ; Variables
 loopVar := "temp"
 i := 0
 Classifications := []
 
+; Delete previous folders and their contents
+FileRemoveDir, L4132L, 1
+FileRemoveDir, %A_WorkingDir%\..\Site\js, 1
+
 ; Creating necessary folders
 FileCreateDir, L4132L\data\output
+FileCreateDir, %A_WorkingDir%\..\Site\js
 
 
 ConvertSHAPEtoJson()
